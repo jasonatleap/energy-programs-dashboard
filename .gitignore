@@ -60,3 +60,6 @@ htmlcov/
 # Temporary files
 *.tmp
 temp/
+
+# Files with credentials
+supabase_query.py
