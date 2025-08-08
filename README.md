@@ -1,6 +1,6 @@
-# US Energy Incentive Programs Dashboard
+# Energy Programs Dashboard
 
-An interactive heat map visualization showing energy incentive programs across the United States, with filtering capabilities by device type and region.
+US Energy Incentive Programs Dashboard - An interactive heat map visualization showing energy incentive programs across the United States, with filtering capabilities by device type and region.
 
 ## Features
 
