@@ -315,13 +315,32 @@ def update_map(selected_devices, selected_regions):
         
         device_breakdown = filtered_df.groupby('device_name').size().sort_values(ascending=False)
         
+        # Get programs by state (top 10)
+        state_breakdown = filtered_df.groupby('state_province').size().sort_values(ascending=False).head(10)
+        
+        # Get programs by state and device type
+        state_device_breakdown = filtered_df.groupby(['state_province', 'device_name']).size().reset_index(name='count')
+        
         summary_children = [
             html.H3("Summary Statistics"),
             html.P(f"Total Programs: {total_programs}"),
             html.P(f"States with Programs: {total_states}"),
             html.P(f"Regions with Programs: {total_regions}"),
             html.H4("Programs by Device Type:"),
-            html.Ul([html.Li(f"{device}: {count}") for device, count in device_breakdown.items()])
+            html.Ul([html.Li(f"{device}: {count}") for device, count in device_breakdown.items()]),
+            html.H4("Top 10 States by Program Count:"),
+            html.Ul([html.Li(f"{state}: {count}") for state, count in state_breakdown.items()]),
+            html.H4("Programs by State and Device Type:"),
+            html.Div([
+                html.Details([
+                    html.Summary(f"{state} ({len(state_device_breakdown[state_device_breakdown['state_province'] == state])} device types)"),
+                    html.Ul([
+                        html.Li(f"{row['device_name']}: {row['count']}")
+                        for _, row in state_device_breakdown[state_device_breakdown['state_province'] == state].iterrows()
+                    ])
+                ], style={'marginBottom': '5px'})
+                for state in state_breakdown.index
+            ])
         ]
         
     else:
