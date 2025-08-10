@@ -68,11 +68,11 @@ state_to_region = {
     'WI': 'Midwest', 'MN': 'Midwest', 'IA': 'Midwest', 'MO': 'Midwest',
     'ND': 'Midwest', 'SD': 'Midwest', 'NE': 'Midwest', 'KS': 'Midwest',
     # Mid-Atlantic
-    'NY': 'Mid-Atlantic', 'NJ': 'Mid-Atlantic', 'PA': 'Mid-Atlantic',
+    'NJ': 'Mid-Atlantic', 'PA': 'Mid-Atlantic',
     'DE': 'Mid-Atlantic', 'MD': 'Mid-Atlantic', 'WV': 'Mid-Atlantic',
     # Northeast
     'ME': 'Northeast', 'NH': 'Northeast', 'VT': 'Northeast', 'MA': 'Northeast',
-    'RI': 'Northeast', 'CT': 'Northeast'
+    'RI': 'Northeast', 'CT': 'Northeast', 'NY': 'Northeast'
 }
 
 # Region center coordinates for labels
